@@ -1,6 +1,30 @@
-import requests
-import discord
-import asyncio
+#import logging
+#import requests
+#import discord
+#import asyncio
+#import lxml
+
+# Set up local data structures from /data
+
+straight_fapcams = []
+not_straight_fapcams = []
+top_1k_albums = []
+
+
+def load_data():
+  straight_fapcams = [line.rstrip('\n') for line in open('straight-fapcams')]
+
+load_data()
+
+for x in straight_fapcams:
+  print(x + "\n")
+
+if not straight_fapcams:
+  print "Nothing here!"
+
+'''
+# Configure discordpy login module
+logging.basicConfig(level=logging.INFO)
 
 client = discord.Client()
 
@@ -26,3 +50,4 @@ async def on_message(message):
         await client.send_message(message.channel, 'Done sleeping')
 
 client.run('token')
+'''
